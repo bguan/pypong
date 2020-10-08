@@ -127,3 +127,7 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
+
+# Misc OS, IDE junk
+.DS_Store
+.vscode
