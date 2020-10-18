@@ -17,6 +17,7 @@ PAD_STEP_MOVE = 5
 BALL_STEP_MOVE = 5
 GAME_OVER_TEXT = "Game Over. Press [N] for New Game."
 VOLLEY_PAUSE = 2
+SIDE_SPIN = 2
 
 class Ball(pygame.sprite.Sprite):
     def __init__(self, x, y, radius, color, left_pad, right_pad, left_up_callback, right_up_callback):
@@ -41,9 +42,9 @@ class Ball(pygame.sprite.Sprite):
                 self.h_velo *= -1
                 pressed_keys = pygame.key.get_pressed()
                 if pressed_keys[pad.key_up]:
-                    self.v_velo -= 1
+                    self.v_velo -= SIDE_SPIN
                 elif pressed_keys[self.left_pad.key_down]:
-                    self.v_velo += 1
+                    self.v_velo += SIDE_SPIN
                 return
 
         if self.h_velo > 0 and self.rect.right >= SCREEN_WIDTH:
