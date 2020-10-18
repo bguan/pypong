@@ -95,10 +95,6 @@ class Pad(pygame.sprite.Sprite):
 class Game():
     def __init__(self):
         pygame.init()
-        self.FramePerSec = pygame.time.Clock()
-        self.display = pygame.display.set_mode((SCREEN_WIDTH,SCREEN_HEIGHT))
-        self.display.fill(BLACK)
-        pygame.display.set_caption("Game")
         self.left_score = 0
         self.right_score = 0
 
@@ -110,6 +106,10 @@ class Game():
         self.ball = Ball(SCREEN_WIDTH//2, SCREEN_HEIGHT//2, BALL_RADIUS, WHITE, self.left_pad, self.right_pad, left_up, right_up)
 
     def run(self):
+        self.FramePerSec = pygame.time.Clock()
+        self.display = pygame.display.set_mode((SCREEN_WIDTH,SCREEN_HEIGHT))
+        self.display.fill(BLACK)
+        pygame.display.set_caption("Game")
         while True:     
             for event in pygame.event.get():
                 if event.type == QUIT:
